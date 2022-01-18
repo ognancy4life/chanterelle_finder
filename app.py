@@ -10,7 +10,7 @@ st.write('This app ... using Streamlit on a Heroku app.')
 
 
 df = pd.DataFrame(
-     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+     np.random.randn(1000, 2) / [50, 50] + [47.6205, -122.3493],
      columns=['lat', 'lon'])
 
 st.map(df)
