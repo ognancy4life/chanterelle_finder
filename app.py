@@ -12,7 +12,7 @@ if st.text_input("Enter your starting address:", key='address'):
      ticker = st.session_state.address
 
 st.write("Select how far you're willing to drive:")
-period = st.sidebar.slider('Miles',
+period = st.slider('Miles',
      value=[0, 300])
 
 #https://deckgl.readthedocs.io/en/latest/
@@ -36,11 +36,13 @@ SURFACE_IMAGE = f"https://api.mapbox.com/v4/mapbox.satellite/{{z}}/{{x}}/{{y}}@2
 terrain_layer = pdk.Layer(
     "TerrainLayer", elevation_decoder=ELEVATION_DECODER, texture=SURFACE_IMAGE, elevation_data=TERRAIN_IMAGE
 )
-view_state = pdk.ViewState(latitude=46.24, longitude=-122.18, zoom=11.5, bearing=140, pitch=60)
-r = pdk.Deck(terrain_layer, initial_view_state=view_state)
-r.to_html("terrain_layer.html")
+view_state = pdk.ViewState(latitude=47.6205, longitude=-122.3493, zoom=9, bearing=0, pitch=50)
+deckchart = st.pydeck_chart(pdk.Deck(
+    initial_view_state=view_state,
+    layers=[terrain_layer],
+))
 
-
+# oir custom layers
 
 #https://towardsdatascience.com/build-a-multi-layer-map-using-streamlit-2b4d44eb28f3
 df = pd.DataFrame(
