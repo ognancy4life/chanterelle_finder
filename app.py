@@ -47,7 +47,7 @@ df = pd.DataFrame(
      np.random.randn(1000, 2) / [250, 250] + [47.6205, -122.3493],
      columns=['lat', 'lon'],)
 
-st.map(df)
+#st.map(df)
 
 # Can get most current soil moisture data from:
 # https://nasagrace.unl.edu/data/current/
